@@ -98,7 +98,7 @@ public void keyPressed(KeyEvent e) {
 		}
 	}
 	if (e.getKeyCode()== KeyEvent.VK_UP) {
-		if (rocket.y>rocket.speed) {
+		if (rocket.y>0) {
 			rocket.up();	
 			}
 	}
@@ -108,12 +108,12 @@ public void keyPressed(KeyEvent e) {
 			}
 	}
 	if (e.getKeyCode()== KeyEvent.VK_LEFT) {
-		if (rocket.x>rocket.speed) {
+		if (rocket.x>0+5) {
 			rocket.left();	
 			}
 	}
 	if (e.getKeyCode()== KeyEvent.VK_DOWN) {
-		if (rocket.y<LeagueInvaders.HEIGHT-rocket.height) {
+		if (rocket.y<LeagueInvaders.HEIGHT-rocket.height-25) {
 		rocket.down();	
 		}
 		
