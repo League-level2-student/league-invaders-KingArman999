@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -17,7 +18,33 @@ void addAlien() {
 }
 void update(){
 	for (Alien alien : aliens) {
-		
+		if (alien.y > LeagueInvaders.HEIGHT) {
+			alien.isActive = false;
+		}
+	}
+	for (Projectile projectile : projectiles) {
+		if (projectile.y > LeagueInvaders.HEIGHT) {
+			projectile.isActive = false;
+		}
+	}
+}
+void draw(Graphics g){
+	ship.draw(g);
+	for (int i = 0; i < aliens.size(); i++) {
+		aliens.get(i);
+	}
+}
+void purgeObjects() {
+	for (Alien alien : aliens) {
+		if (alien.isActive = false) {
+			aliens.remove(alien);
+		}
+	}
+	for (Projectile projectile : projectiles) {
+		if (projectile.isActive = false) {
+			projectiles.remove(projectile);
+		}
 	}
 }
 }
+
