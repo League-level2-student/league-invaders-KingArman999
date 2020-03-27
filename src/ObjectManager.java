@@ -1,17 +1,19 @@
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ObjectManager {
+public class ObjectManager implements ActionListener {
 	Rocketship ship;
 	ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 	ArrayList<Alien> aliens = new ArrayList<Alien>();
 	Random rand = new Random();
 ObjectManager(Rocketship ship){
-this.ship= ship;
+this.ship = ship;
 }
-void addProjectiles(Projectile projectiles) {
-	
+void addProjectile(Projectile projectile) {
+	projectiles.add(new Projectile(ship.x, ship.y, 10,10));
 }
 void addAlien() {
 	aliens.add(new Alien(rand.nextInt(LeagueInvaders.WIDTH),0,50,50));
@@ -45,6 +47,11 @@ void purgeObjects() {
 			projectiles.remove(projectile);
 		}
 	}
+}
+@Override
+public void actionPerformed(ActionEvent e) {
+	// TODO Auto-generated method stub
+	addAlien();
 }
 }
 
