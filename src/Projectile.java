@@ -24,6 +24,7 @@ void draw(Graphics g) {
 }
 void update() {
 	y-=speed;
+	super.update();
 }
 void loadImage(String imageFile) {
     if (needImage) {
