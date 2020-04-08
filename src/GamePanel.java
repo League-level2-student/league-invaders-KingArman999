@@ -22,12 +22,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font enterFont = new Font("Arial", Font.PLAIN, 24);
 	Font spaceFont = new Font("Arial", Font.PLAIN, 24);
 	Font endFont = new Font("Arial", Font.PLAIN, 48);
+	Font scoreFont = new Font("Arial", Font.PLAIN, 20);
 	ObjectManager object = new ObjectManager(rocket);
 	public static BufferedImage image;
 	public static boolean needImage = true;
 	public static boolean gotImage = false;
 	Timer alienSpawn;
-
+	
 	GamePanel() {
 		frameDraw = new Timer(1000 / 60, this);
 		frameDraw.start();
@@ -79,7 +80,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	void drawGameState(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, 500, 800);
+		g.setColor(Color.WHITE);
 		object.draw(g);
+		g.setFont(scoreFont);
+		g.drawString("Score: " + object.getScore(), 50, 100);
 	}
 
 	void drawEndState(Graphics g) {
@@ -135,6 +139,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			if (currentState == MENU) {
 				currentState = GAME;
+				rocket = new Rocketship(250, 700, 50, 50);
+				object = new ObjectManager(rocket);
 				startGame();
 				return;
 			}
@@ -173,7 +179,11 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				object.addProjectile(rocket.getProjectile());
 			}
 		}
-
+		if (currentState == END) {
+			rocket.isActive= false;
+			Rocketship rocket = new Rocketship(250, 700, 50, 50);
+			ObjectManager object = new ObjectManager(rocket);
+		}
 	}
 
 	@Override
