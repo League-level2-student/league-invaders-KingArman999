@@ -20,7 +20,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer frameDraw;
 	Font titleFont = new Font("Arial", Font.PLAIN, 48);
 	Font enterFont = new Font("Arial", Font.PLAIN, 24);
-	Font spaceFont = new Font("Arial", Font.PLAIN, 24);
 	Font endFont = new Font("Arial", Font.PLAIN, 48);
 	Font scoreFont = new Font("Arial", Font.PLAIN, 20);
 	ObjectManager object = new ObjectManager(rocket);
@@ -72,9 +71,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.setFont(enterFont);
 		g.setColor(Color.WHITE);
 		g.drawString("Press ENTER to start", 130, 500);
-		g.setFont(spaceFont);
-		g.setColor(Color.WHITE);
-		g.drawString("Press SPACE for instructions", 95, 650);
 	}
 
 	void drawGameState(Graphics g) {
