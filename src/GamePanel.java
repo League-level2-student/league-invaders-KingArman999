@@ -23,10 +23,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Font endFont = new Font("Arial", Font.PLAIN, 48);
 	Font scoreFont = new Font("Arial", Font.PLAIN, 20);
 	ObjectManager object = new ObjectManager(rocket);
+	Timer alienSpawn;
 	public static BufferedImage image;
 	public static boolean needImage = true;
 	public static boolean gotImage = false;
-	Timer alienSpawn;
 	
 	GamePanel() {
 		frameDraw = new Timer(1000 / 60, this);
